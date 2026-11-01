@@ -1,0 +1,26 @@
+# ROM identity for Desert Strike — the single source of truth.
+#
+# Read by three consumers, so a revision change is made once, here:
+#   - the build   (CMake generates snesrecomp_rom_identity.h from this file)
+#   - tools/regen.sh
+#   - .github/workflows/release.yml
+#
+# Format is `key = value`, one per line; `#` starts a comment. Values may be
+# quoted. Leaving a digest empty means the build cannot verify a ROM it is
+# handed — it will say so rather than accept it.
+
+display_name    = Desert Strike
+rom_file        = Desert Strike - Return to the Gulf (USA).sfc
+# Every digest of the bare image (copier header stripped), so the Retro
+# catalog can take a submission's identity from this file rather than ask
+# the submitter to hash the ROM again. The build verifies on crc32/sha256.
+expected_crc32  = 4ce26787
+expected_md5    = 73d7d5b5088b67de482cfcea40640d40
+expected_sha1   = b9f0e2cfac1ee39140cd495c8e9de99bc6d9d3e1
+expected_sha256 = 606abf536440173ae36466db360c7db6b474beb7a105c8a62bc74a54cbe1c38b
+rom_size        = 1048576
+mapping         = lorom
+region          = USA
+# What a mod package's [[target]] game_id must name to apply to this title
+# (snesrecomp/docs/MOD_PACKAGES.md). Stable across revisions on purpose.
+game_id         = desertstrike-usa
